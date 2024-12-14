@@ -1,0 +1,18 @@
+# Sauvegardes différentielles du lundi au samedi à 23h00
+0 23 * * 1-6 /chemin/vers/script_sauvegarde_diff.sh
+
+# Sauvegarde complète hebdomadaire le dimanche à 22h00
+0 22 * * 0 /chemin/vers/script_sauvegarde_full.sh
+
+# Sauvegarde complète mensuelle le premier jour de chaque mois à 21h00
+0 21 1 * * /chemin/vers/script_sauvegarde_full.sh
+
+# Nettoyage des anciennes sauvegardes chaque dimanche à 3h00
+0 3 * * 0 /chemin/vers/script_nettoyage_backup.sh
+
+
+Justification des heures choisies
+Différentielles (23h00 du lundi au samedi) : Ces tâches s’exécutent en fin de journée pour capturer les modifications quotidiennes.
+Complète hebdomadaire (22h00 dimanche) : Dimanche soir est souvent une période de faible activité, ce qui minimise l'impact sur les utilisateurs.
+Complète mensuelle (21h00 premier jour du mois) : Planifiée en début de soirée pour éviter les conflits avec d'autres tâches.
+Nettoyage (3h00 dimanche) : Horaire creux pour libérer de l’espace sans interférer avec les autres processus.
